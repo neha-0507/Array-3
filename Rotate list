@@ -1,0 +1,18 @@
+#space complexity=o(nk)
+#time complexity=o(1)
+#run on leetcode=yes
+
+class Solution(object):
+    def rotate(self, nums, k):
+        k%=len(nums)
+        self.helper(0,len(nums)-1,nums)
+        self.helper(0,k-1,nums)
+        self.helper(k,len(nums)-1,nums)
+    
+    
+    
+    def helper(self,start,end,nums):
+        while(start<end):
+            nums[start],nums[end]=nums[end],nums[start]
+            start+=1
+            end-=1
